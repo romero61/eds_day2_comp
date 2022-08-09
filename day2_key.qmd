@@ -53,3 +53,105 @@ dog_food[2]
 # call by string instead of position
  dog_food['khora']
 ```
+
+```{r}
+cars <- c("blue", 'orange', 'white')
+cars[1]
+
+i <- seq(1:2)
+cars[i]
+```
+
+vectors are mutable, tuples are immutable
+
+```{r}
+cars[3] <- "yellow"
+cars
+```
+
+# Matrices
+
+Everything in a matrix must be the same data type
+
+```{r}
+
+fish_size <-
+  matrix(c(12, 14, 18, 20),
+         ncol = 2,
+         nrow = 2,
+         byrow = FALSE)
+fish_size
+class(fish_size)
+typeof(fish_size)
+
+# Example indexing:
+fish_size[1,1]
+fish_size[2,1]
+
+# what happens if we create a matrix with different types of data
+
+fish_type <-
+  matrix(c(12, "trout", 18, 13L),
+         ncol = 2,
+         nrow = 2,
+         byrow = FALSE)
+class(fish_type)
+typeof(fish_type)
+fish_type
+
+fish_size
+fish_size[2,]
+fish_size[,1]
+```
+
+# Lists
+
+Reminder: A list combines vectors that can be of different length and type
+
+```{r}
+urchins <- list("blue", c(1, 2, 3), c("a cat", "a dog"), 5L)
+urchins 
+
+ex_1 <- urchins[3] # returns a list [[1]]
+class(ex_1)
+ex_2 <- urchins[[3]] # returns 
+class(ex_2)
+ex_2[2]
+
+```
+
+# Make a named list
+
+```{r}
+tacos <-
+  list(
+    topping = c("onion", "cilantro", "guacamole"),
+    filling = c("beans", "meat", "veggies"),
+    price = c(6.75, 8.25, 9.50)
+  )
+tacos
+
+# Index list elements by name
+# Readr parsen
+
+tacos$filling
+tacos$filling[2]
+```
+
+```{r}
+a <- c(1, 2, 3)
+b <- c(3, 4, 5)
+
+myttest  <- t.test(a,b)
+myttest
+class(myttest)
+myttest$p.value
+```
+
+The price of a veggie burrito with guacamole is `r tacos$price[3]`
+
+```{r}
+my_list <- list(cats = c(1, 2, 3), dogs = c(10, 11, 12))
+```
+
+the second value of dogs is `r my_list$dogs[2]`
